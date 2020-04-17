@@ -19,6 +19,7 @@ sudo cp awless /usr/bin/
 sudo apt install thefuck -y 
 unzip .oh-my-zsh.zip
 rm -rf ~/.oh-my-zsh/
+mkdir ~/.oh-my-zsh
 cp -rufi  ~/iam/.oh-my-zsh/* ./.oh-my-zsh
 
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
@@ -28,5 +29,7 @@ cd ~/.oh-my-zsh/custom/plugins
 git clone https://github.com/zdharma/zui.git
 sudo apt-get install -y neofetch
 cp ~/iam/.zshrc ~/
+cp ~/iam/.oh-my-zsh/oh-my-zsh.sh ~/.oh-my-zsh/
+chmod +x ~/.oh-my-zsh/oh-my-zsh.sh
 #source <(awless completion zsh)
 
