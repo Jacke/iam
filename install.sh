@@ -18,14 +18,15 @@ tar fx awless-linux-386.tar.gz
 sudo cp awless /usr/bin/
 sudo apt install thefuck -y 
 unzip .oh-my-zsh.zip
+rm -rf ~/.oh-my-zsh/
 cp -rufi  ~/iam/.oh-my-zsh/* ./.oh-my-zsh
 
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-sudo npm install -g pure-prompt spaceship-prompt
+sudo npm install -g spaceship-prompt
 
 cd ~/.oh-my-zsh/custom/plugins
 git clone https://github.com/zdharma/zui.git
-cp ~/iam/.zshrc ~/
 sudo apt-get install -y neofetch
+cp ~/iam/.zshrc ~/
 #source <(awless completion zsh)
 
