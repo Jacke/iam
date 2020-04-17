@@ -346,6 +346,8 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code     # Exit code section
   char          # Prompt character
 )
-# Set Spaceship ZSH as a prompt
-#  autoload -U promptinit; promptinit
-#  prompt spaceship
+
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+ZSH_THEME="denysdovhan/spaceship-prompt"
+autoload -U promptinit; promptinit
+prompt spaceship

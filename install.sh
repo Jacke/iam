@@ -28,7 +28,6 @@ cd ~/.oh-my-zsh/custom/plugins
 git clone https://github.com/zdharma/zui.git
 sudo apt-get install -y neofetch
 cp ~/iam/.zshrc ~/
-cp ~/iam/.oh-my-zsh/oh-my-zsh.sh ~/.oh-my-zsh/
 chmod +x ~/.oh-my-zsh/oh-my-zsh.sh
 #source <(awless completion zsh)
 
