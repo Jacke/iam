@@ -311,7 +311,7 @@ zinit wait lucid for \
 #      zsh-users/zsh-autosuggestions \
 #  blockf atpull'zinit creinstall -q .' \
 #      zinit light zsh-users/zsh-completions
-
+fpath=($fpath "/usr/local/lib/node_modules/spaceship-prompt")
   # Set Spaceship ZSH as a prompt
   autoload -U promptinit; promptinit
   prompt spaceship
