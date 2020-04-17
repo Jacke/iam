@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/stan/.oh-my-zsh"
+export ZSH="/home/ubuntu/.oh-my-zsh"
 
 #source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -346,8 +346,6 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code     # Exit code section
   char          # Prompt character
 )
-
-source /usr/local/lib/node_modules/spaceship-prompt/spaceship.zsh
-  # Set Spaceship ZSH as a prompt
+# Set Spaceship ZSH as a prompt
 #  autoload -U promptinit; promptinit
 #  prompt spaceship

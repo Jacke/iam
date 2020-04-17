@@ -33,3 +33,4 @@ cp ~/iam/.oh-my-zsh/oh-my-zsh.sh ~/.oh-my-zsh/
 chmod +x ~/.oh-my-zsh/oh-my-zsh.sh
 #source <(awless completion zsh)
 
+echo "source /usr/local/lib/node_modules/spaceship-prompt/spaceship.zsh" > ~/.zshrc
