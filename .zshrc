@@ -1,8 +1,5 @@
-fpath+=('/usr/local/lib/node_modules/pure-prompt/functions')
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/stan/.oh-my-zsh"
