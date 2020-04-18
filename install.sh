@@ -31,3 +31,7 @@ cp ~/iam/.zshrc ~/
 chmod +x ~/.oh-my-zsh/oh-my-zsh.sh
 #source <(awless completion zsh)
 
+sudo mkdir -p /usr/local/lib/node_modules/spaceship-prompt
+unzip spaceship-prompt.zip
+mv spaceship-prompt/ /usr/local/lib/node_modules/spaceship-prompt
+

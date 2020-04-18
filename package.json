@@ -1,0 +1,77 @@
+{
+  "_from": "spaceship-prompt",
+  "_id": "spaceship-prompt@3.11.2",
+  "_inBundle": false,
+  "_integrity": "sha512-BI1oTiJPFFC03wXzJDa03Y5jnRcrrqAg8utwcRHaopTlgbZral/9nH/NgpYyFiB9AtfCfBYGhcVvVC3kzNoV/Q==",
+  "_location": "/spaceship-prompt",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "spaceship-prompt",
+    "name": "spaceship-prompt",
+    "escapedName": "spaceship-prompt",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/spaceship-prompt/-/spaceship-prompt-3.11.2.tgz",
+  "_shasum": "8fbe2e00cc5d62c5b8e17fc6b0b2355a3996d13c",
+  "_spec": "spaceship-prompt",
+  "_where": "/Users/stan/Dev",
+  "author": {
+    "name": "Denys Dovhan",
+    "email": "email@denysdovhan.com",
+    "url": "http://denysdovhan.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/denysdovhan/spaceship-prompt/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A Zsh prompt for Astronauts.",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-anchorjs": "^1.1.1",
+    "gitbook-plugin-edit-link": "^2.0.2",
+    "gitbook-plugin-github": "^2.0.0",
+    "gitbook-plugin-github-buttons": "^3.0.0",
+    "gitbook-plugin-prism": "^2.3.0"
+  },
+  "files": [
+    "lib",
+    "scripts",
+    "sections",
+    "spaceship.zsh",
+    "spaceship.zsh-theme"
+  ],
+  "homepage": "https://github.com/denysdovhan/spaceship-prompt#readme",
+  "keywords": [
+    "prompt",
+    "shell",
+    "zsh",
+    "zsh-theme",
+    "terminal"
+  ],
+  "license": "MIT",
+  "name": "spaceship-prompt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denysdovhan/spaceship-prompt.git"
+  },
+  "scripts": {
+    "docs:build": "npm run docs:prepare && gitbook build && npm run docs:icons",
+    "docs:icons": "cp logos/apple-touch-icon.png _book/gitbook/images/apple-touch-icon-precomposed-152.png && cp logos/favicon.ico _book/gitbook/images",
+    "docs:prepare": "gitbook install",
+    "docs:serve": "npm run docs:prepare && gitbook serve .",
+    "postinstall": "./scripts/install.sh",
+    "postpublish": "git push --follow-tags",
+    "postuninstall": "./scripts/uninstall.sh",
+    "test": "./scripts/tests.sh",
+    "version": "./scripts/version.sh"
+  },
+  "version": "3.11.2"
+}
