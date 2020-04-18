@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/ubuntu/.oh-my-zsh"
+export ZSH="/Users/stan/.oh-my-zsh"
 source ~/.zplug/init.zsh
 
 #source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -11,7 +11,7 @@ source ~/.zplug/init.zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 #ZSH_THEME="typewritten" 
 #export TYPEWRITTEN_MULTILINE=true
 
@@ -348,6 +348,8 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
+#source /usr/local/lib/node_modules/spaceship-prompt/spaceship.zsh
+  # Set Spaceship ZSH as a prompt
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 ZSH_THEME="denysdovhan/spaceship-prompt"
 autoload -U promptinit; promptinit
