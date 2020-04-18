@@ -348,9 +348,4 @@ SPACESHIP_PROMPT_ORDER=(
   char          # Prompt character
 )
 
-#source /usr/local/lib/node_modules/spaceship-prompt/spaceship.zsh
-  # Set Spaceship ZSH as a prompt
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-ZSH_THEME="denysdovhan/spaceship-prompt"
-autoload -U promptinit; promptinit
-prompt spaceship
+source /usr/local/lib/node_modules/spaceship-prompt/spaceship.zsh
