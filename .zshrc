@@ -1,25 +1,18 @@
+####################################################################################################################################
+########################## Stanislav Soblev IAM files: .zshrc ######################################################################
+##########################         copy to ~/.zshrc           ######################################################################
+####################################################################################################################################
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/stan/.oh-my-zsh"
-source ~/.zplug/init.zsh
 
-#source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="typewritten" 
-#export TYPEWRITTEN_MULTILINE=true
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -39,9 +32,6 @@ source ~/.zplug/init.zsh
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -68,210 +58,12 @@ source ~/.zplug/init.zsh
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-#
-
-plugins=(
-igit
-zsh-navigation-tools
-zsh_reload
-zsh-interactive-cd
-zsh-autosuggestions
-fasd 
-git 
-zui 
-sbt
-alias-finder
-aws
-branch
-brew
-catimg
-colorize
-colored-man-pages
-common-aliases
-compleat
-copydir
-copybuffer
-copyfile
-cp
-dircycle
-docker
-docker-compose
-extract
-fd
-gnu-utils
-gpg-agent
-thefuck)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-weather() {
-  curl v2.wttr.in/$1
-}
-
-alias cat="ccat"
-alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="lsd --icon=never"
-
-
-###### 
-# MOTD
-######
-neofetch
-#echo "${fg[${ZSH_HOST_COLOR}]}$(uptime)"
-#echo "Kernel: $(uname -r) ($(uname -v))${reset_color}"
-#echo "\n\n"
-# [ -f /usr/local/bin/fortune ] && fortune "${ZSH_FORTUNE_ARG:-}" && echo ""
-#Q=$(/usr/local/Cellar/node/13.6.0/bin/quotes-cli t freedom && echo "")
-#[ -f /usr/local/Cellar/node/13.6.0/bin/quotes-cli ] && /usr/local/Cellar/node/13.6.0/bin/quotes-cli t freedom && echo ""
-#echo $Q
-#/usr/local/Cellar/node/13.6.0/bin/quotes-cli
-
+##############################################
+##  Plugins
+##############################################
+# plugins=()
+# source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#####
-# User defined aliasesc
-####
-alias nvim "/Users/stan/nvim-osx64/bin/nvim -u init.vim"
-alias cat="/usr/local/bin/ccat"
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-
-setopt correct
-
-#autoload -U promptinit; promptinit
-zstyle :prompt:pure:path color "#33E0FF"
-
-zstyle :prompt:pure:prompt:continuation color "#663399"
-zstyle :prompt:pure:prompt:error color "#FF0080"
-
-PURE_PROMPT_SYMBOL=λ
-
-
-function zle-line-init {
-    marking=0
-}
-zle -N zle-line-init
-
-function select-char-right {
-    if (( $marking != 1 ))
-    then
-        marking=1
-        zle set-mark-command
-    fi
-    zle .forward-char
-}
-zle -N select-char-right
-
-function select-char-left {
-    if (( $marking != 1 ))
-    then
-        marking=1
-        zle set-mark-command
-    fi
-    zle .backward-char
-}
-zle -N select-char-left
-
-function forward-char {
-    if (( $marking == 1 ))
-    then
-        marking=0
-        NUMERIC=-1 zle set-mark-command
-    fi
-    zle .forward-char
-}
-zle -N forward-char
-
-function backward-char {
-    if (( $marking == 1 ))
-    then
-        marking=0
-        NUMERIC=-1 zle set-mark-command
-    fi
-    zle .backward-char
-}
-zle -N backward-char
-
-function delete-char {
-    if (( $marking == 1 ))
-    then
-        zle kill-region
-        marking=0
-    else
-        zle .delete-char
-    fi
-}
-zle -N delete-char
-
-export PATH="/usr/local/opt/ncurses/bin:$PATH"
-
-### ZNT's installer added snippet ###
-fpath=( "$fpath[@]" "$HOME/.config/znt/zsh-navigation-tools" )
-autoload n-aliases n-cd n-env n-functions n-history n-kill n-list n-list-draw n-list-input n-options n-panelize n-help
-autoload znt-usetty-wrapper znt-history-widget znt-cd-widget znt-kill-widget
-alias naliases=n-aliases ncd=n-cd nenv=n-env nfunctions=n-functions nhistory=n-history
-alias nkill=n-kill noptions=n-options npanelize=n-panelize nhelp=n-help
-zle -N znt-history-widget
-bindkey '^R' znt-history-widget
-setopt AUTO_PUSHD HIST_IGNORE_DUPS PUSHD_IGNORE_DUPS
-zstyle ':completion::complete:n-kill::bits' matcher 'r:|=** l:|=*'
-### END ###
-source <(awless completion zsh)
-
-
-bindkey "[D" backward-word
-bindkey "[C" forward-word
-bindkey "^[a" beginning-of-line
-bindkey "^[e" end-of-line
-bindkey "\e\e[D" backward-word
-bindkey "\e\e[C" forward-word
-
-
-
-
-export PATH=/Users/stan/.local/bin:$PATH
-export PATH="/usr/local/opt/openal-soft/bin:$PATH"
-
-
-ing() {
-	local host=$1 nl
-	ping $1 | while read line; do
-		if [[ $line != ${line//*time=} ]]; then
-			print -n "$nl$host: ${line//*time=}"
-			nl="\n"
-		fi
-	done
-}  
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -287,13 +79,12 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Load a few important annexes, without Turbo
-# (this is currently required for annexes)
 zinit light-mode for \
     zinit-zsh/z-a-patch-dl \
     zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-bin-gem-node
-
+    zinit-zsh/z-a-bin-gem-node \
 ### End of Zinit's installer chunk
+
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     zdharma/fast-syntax-highlighting \
@@ -302,16 +93,85 @@ zinit wait lucid for \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
 
+zplugin ice from"gh-r" as"program" atload"!source <(awless completion zsh)"
+zplugin light wallix/awless
 
-#
-#
-#zinit wait lucid for \
-#  atinit"zicompinit; zicdreplay" \
-#      zdharma/fast-syntax-highlighting \
-#  atload"_zsh_autosuggest_start" \
-#      zsh-users/zsh-autosuggestions \
-#  blockf atpull'zinit creinstall -q .' \
-#      zinit light zsh-users/zsh-completions
+zplugin ice from"gh-r" as"program" atload"!source <(awless completion zsh)" src"igit.plugin.zsh"
+zplugin light ytakahashi/igit
+
+zplugin light zdharma/zsh-diff-so-fancy
+zplugin light tysonwolker/iterm-tab-colors
+zplugin load zdharma/history-search-multi-word
+zplugin light zdharma/zzcomplete
+zinit light zpm-zsh/colorize
+zplugin snippet https://github.com/changyuheng/zsh-interactive-cd/blob/master/zsh-interactive-cd.plugin.zsh
+#zplugin ice svn atclone'git clone https://github.com/clvv/fasd external'
+#zplugin snippet PZT::modules/fasd
+zplugin snippet OMZ::plugins/git/git.plugin.zsh
+zplugin load zdharma/zui
+zplugin snippet OMZ::plugins/sbt/sbt.plugin.zsh
+zplugin snippet OMZ::plugins/aws/aws.plugin.zsh
+# zplugin catimg
+# zplugin colored-man-pages
+zplugin snippet OMZ::plugins/compleat/compleat.plugin.zsh
+zplugin snippet OMZ::plugins/cp/cp.plugin.zsh
+zplugin ice wait'2' lucid
+zplugin snippet OMZ::plugins/dircycle/dircycle.plugin.zsh
+
+zplugin ice wait lucid
+zplugin snippet OMZ::plugins/extract/extract.plugin.zsh
+
+zplugin ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
+zplugin light sharkdp/fd
+
+zplugin snippet 'OMZ::plugins/gnu-utils/gnu-utils.plugin.zsh'
+zplugin snippet OMZ::plugins/gpg-agent/gpg-agent.plugin.zsh
+zplugin ice wait'1' lucid
+zplugin light laggardkernel/zsh-thefuck
+
+zplugin ice as"program" pick"bin/git-dsf"
+zplugin light zdharma/zsh-diff-so-fancy
+
+zplugin ice as"program" make"PREFIX=$ZPFX" src"bin/autojump.zsh"
+zplugin light wting/autojump
+
+
+###################################################### 
+# User configuration
+######################################################
+export PATH="/usr/local/opt/ncurses/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH=/Users/stan/.local/bin:$PATH
+export PATH="/usr/local/opt/openal-soft/bin:$PATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+weather() { curl v2.wttr.in/$1 }
+alias nvim "/Users/stan/nvim-osx64/bin/nvim -u init.vim"
+alias cat="/usr/local/bin/ccat"
+alias cat="ccat"
+alias zshconfig="mate ~/.zshrc"
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ls="lsd --icon=never"
+alias python=python3
+alias pip=pip3
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+setopt correct
+bindkey "[D" backward-word
+bindkey "[C" forward-word
+bindkey "^[a" beginning-of-line
+bindkey "^[e" end-of-line
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
   user          # Username section
@@ -337,7 +197,7 @@ SPACESHIP_PROMPT_ORDER=(
   pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
-  #kubectl       # Kubectl context section
+  # kubectl       # Kubectl context section
   terraform     # Terraform workspace section
   exec_time     # Execution time
   line_sep      # Line break
@@ -347,5 +207,9 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code     # Exit code section
   char          # Prompt character
 )
-
 source /usr/local/lib/node_modules/spaceship-prompt/spaceship.zsh
+
+###########
+# MOTD
+###########
+neofetch
