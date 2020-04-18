@@ -5,7 +5,7 @@
 helpFunction()
 {
    echo ""
-   echo "Usage: $0 -a /home/user/"
+   echo "Usage: $0 -a /home/ubuntu"
    echo -e "\t-a Home directory"
    exit 1 # Exit script after printing help
 }
@@ -25,6 +25,7 @@ then
    helpFunction
 fi
 
+sed 's#/Users/stan/'#$paremeterA'/#g' .zshrc
 
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y zsh npm python-pip glances htop mc
