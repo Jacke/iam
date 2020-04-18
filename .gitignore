@@ -2,6 +2,7 @@
 custom/
 
 # temp files directories
+node_modules/
 cache/
 log/
 *.swp

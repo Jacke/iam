@@ -62,7 +62,7 @@ ZSH_THEME="robbyrussell"
 ##  Plugins
 ##############################################
 # plugins=()
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ### Added by Zinit's installer
@@ -136,13 +136,18 @@ zplugin light zdharma/zsh-diff-so-fancy
 zplugin ice as"program" make"PREFIX=$ZPFX" src"bin/autojump.zsh"
 zplugin light wting/autojump
 
+#zplugin ice wait"0"
+#zplugin light zdharma/zconvey
+#zplugin ice wait"0" as"command" pick"cmds/zc-bg-notify" silent
+#zplugin light zdharma/zconvey
+
 
 ###################################################### 
 # User configuration
 ######################################################
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH=/home/ubuntu/.local/bin:$PATH
+export PATH=/Users/stan/.local/bin:$PATH
 export PATH="/usr/local/opt/openal-soft/bin:$PATH"
 
 # You may need to manually set your language environment
@@ -212,7 +217,12 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code     # Exit code section
   char          # Prompt character
 )
-source /usr/local/lib/node_modules/spaceship-prompt/spaceship.zsh
+
+# Spaceship theme
+zplugin ice lucid pick'spaceship.zsh' compile'{lib/*,sections/*,tests/*.zsh}'
+zplugin light denysdovhan/spaceship-prompt
+zplugin snippet https://github.com/changyuheng/zsh-interactive-cd/blob/master/zsh-interactive-cd.plugin.zsh
+zplugin snippet OMZ::plugins/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 
 ###########
 # MOTD

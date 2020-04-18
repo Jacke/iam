@@ -27,7 +27,6 @@ fi
 
 sed 's#/Users/stan/'#$paremeterA'/#g' .zshrc
 
-sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y zsh npm python-pip glances htop mc
 sudo apt-get install -y zsh-syntax-highlighting
 
@@ -45,11 +44,11 @@ wget https://github.com/wallix/awless/releases/download/v0.1.11/awless-linux-386
 tar fx awless-linux-386.tar.gz
 sudo cp awless /usr/bin/
 sudo apt install thefuck -y
-unzip .oh-my-zsh.zip
-rm -rf ~/.oh-my-zsh/
+unzip .oh-my-zsh.zip ~/
+#rm -rf ~/.oh-my-zsh/
 mkdir ~/.oh-my-zsh
 mv ~/iam/.oh-my-zsh/ ~/
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
 cd ~/.oh-my-zsh/custom/plugins
 git clone https://github.com/zdharma/zui.git
 sudo apt-get install -y neofetch
@@ -59,6 +58,7 @@ sudo mkdir -p /usr/local/lib/node_modules/
 cd ~/iam/
 unzip ~/iam/spaceship-prompt.zip
 sudo mv ~/iam/spaceship-prompt/ /usr/local/lib/node_modules/
+npm install ervy qov
 ############################################################################################
 echo ""
 echo ""

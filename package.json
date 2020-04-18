@@ -73,5 +73,9 @@
     "test": "./scripts/tests.sh",
     "version": "./scripts/version.sh"
   },
-  "version": "3.11.2"
+  "version": "3.11.2",
+  "dependencies": {
+    "ervy": "^1.0.7",
+    "qov": "^1.0.3"
+  }
 }
