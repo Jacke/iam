@@ -5,7 +5,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/stan/.oh-my-zsh"
+export ZSH="/home/ubuntu/.oh-my-zsh"
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -104,6 +104,7 @@ zplugin light tysonwolker/iterm-tab-colors
 zplugin load zdharma/history-search-multi-word
 zplugin light zdharma/zzcomplete
 zinit light zpm-zsh/colorize
+zplugin snippet https://github.com/bernardop/iterm-tab-color-oh-my-zsh/blob/master/iterm-tab-color.plugin.zsh
 zplugin snippet https://github.com/changyuheng/zsh-interactive-cd/blob/master/zsh-interactive-cd.plugin.zsh
 #zplugin ice svn atclone'git clone https://github.com/clvv/fasd external'
 #zplugin snippet PZT::modules/fasd
@@ -141,7 +142,7 @@ zplugin light wting/autojump
 ######################################################
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH=/Users/stan/.local/bin:$PATH
+export PATH=/home/ubuntu/.local/bin:$PATH
 export PATH="/usr/local/opt/openal-soft/bin:$PATH"
 
 # You may need to manually set your language environment
@@ -163,6 +164,10 @@ alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="lsd --icon=never"
 alias python=python3
 alias pip=pip3
+alias test_label="tc e91e63"
+alias prod_label="tc 76ff03"
+test_label_connect() { tc e91e63 && et $1 }
+prod_label_connect() { tc 76ff03 && et $1 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 setopt correct
