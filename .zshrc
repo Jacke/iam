@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ubuntu/.oh-my-zsh"
+source ~/.zplug/init.zsh
 
 #source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

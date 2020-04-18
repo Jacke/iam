@@ -31,5 +31,3 @@ cp ~/iam/.zshrc ~/
 chmod +x ~/.oh-my-zsh/oh-my-zsh.sh
 #source <(awless completion zsh)
 
-sudo npm install -g spaceship-prompt
-echo "source /usr/local/lib/node_modules/spaceship-prompt/spaceship.zsh" >> ~/.zshrc
