@@ -16,7 +16,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
     steps:
       - name: Set up git repository
         uses: actions/checkout@v2
@@ -24,15 +24,15 @@ jobs:
         run: pwd        
       - name: Install zsh
         if: runner.os == 'Linux'
-        run: sudo apt-get update; sudo apt-get install zsh; sudo chsh -s /bin/zsh
+        run: sudo apt-get update; sudo apt-get install zsh neofetch;
+      - name: Install neofetch for Mac
+        if: runner.os == 'Macos'
+        run: brew install neofetch;
       - name: Deps
-        run: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; cp ./.zshrc ~/.zshrc
+        run: sudo chsh -s /bin/zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; cp ./.zshrc ~/.zshrc; zsh
       - name: Test installer
         run: ls -lha ~
       - name: pwda
         run: pwd && zsh        
       - name: Check syntax
-        run: |
-          for file in ~/.oh-my-zsh/oh-my-zsh.sh; do
-            zsh "$file" || return 1
-          done
+        run: zsh ~/.zshrc
