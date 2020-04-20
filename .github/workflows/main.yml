@@ -24,9 +24,9 @@ jobs:
         run: pwd        
       - name: Install zsh
         if: runner.os == 'Linux'
-        run: sudo apt-get update; sudo apt-get install zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; sudo chsh -s /bin/zsh
+        run: sudo apt-get update; sudo apt-get install zsh; sudo chsh -s /bin/zsh
       - name: Deps
-        run: cp ./.zshrc ~/.zshrc
+        run: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; cp ./.zshrc ~/.zshrc
       - name: Test installer
         run: ls -lha ~
       - name: pwda
