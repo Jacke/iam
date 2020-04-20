@@ -26,7 +26,7 @@ jobs:
         if: runner.os == 'Linux'
         run: sudo apt-get update; sudo apt-get install zsh; sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; sudo chsh -s /bin/zsh
       - name: Deps
-        run: sh ./install.sh -a /home/runner
+        run: cp ./.zshrc ~/.zshrc
       - name: Test installer
         run: ls ~
       - name: pwda
