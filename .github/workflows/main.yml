@@ -16,7 +16,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, macos-latest]
     steps:
       - name: Set up git repository
         uses: actions/checkout@v2
@@ -28,7 +28,7 @@ jobs:
       - name: Deps
         run: cp ./.zshrc ~/.zshrc
       - name: Test installer
-        run: ls ~
+        run: ls -lha ~
       - name: pwda
         run: pwd && zsh        
       - name: Check syntax
