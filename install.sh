@@ -72,3 +72,10 @@ echo "     (_,) . ), ) _) _,')  (, ) '. )  ,. (' )"
 echo " jgs^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ############################################################################################
 
+zsh
+cp -r ~/.oh-my-zsh/plugins/zsh-navigation-tools/.config/ /home/ubuntu/.zinit/snippets/OMZ::plugins--zsh-navigation-tools/zsh-navigation-tools.plugin.zsh/
+zinit light ytakahashi/igit
+zsh
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
