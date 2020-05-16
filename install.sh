@@ -27,7 +27,8 @@ fi
 
 sed 's#/Users/stan/'#$paremeterA'/#g' .zshrc
 
-sudo apt-get install -y zsh npm python-pip glances htop mc
+sudo apt-get install -y zsh npm python-pip glances htop mc fd-find bat
+
 sudo apt-get install -y zsh-syntax-highlighting
 
 ### UI / CLI 

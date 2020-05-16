@@ -6,8 +6,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ubuntu/.oh-my-zsh"
-
-
+#fpath=($fpath ~/.oh-my-zsh/plugins/fx/)
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -61,7 +60,7 @@ ZSH_THEME="robbyrussell"
 ##############################################
 ##  Plugins
 ##############################################
-# plugins=()
+#plugins=(fx)
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -93,28 +92,77 @@ zinit wait lucid for \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
 
-zplugin ice from"gh-r" as"program" atload"!source <(awless completion zsh)"
+
+zplugin ice from"gh-r" as"program" atload"!source <(awless completion zsh) && source <(lua ~/Dev/z.lua/z.lua --init zsh)"
 zplugin light wallix/awless
+
+zplugin ice pick"init.sh"; zplugin light 'b4b4r07/enhancd'
+
+#zplugin ice wait'1'
+zplugin light psprint/zsh-navigation-tools
+zplugin load zdharma/history-search-multi-word
+
 
 zplugin ice from"gh-r" as"program" atload"!source <(awless completion zsh)" src"igit.plugin.zsh"
 zplugin light ytakahashi/igit
 
+zplugin ice wait'1'
+zplugin light urbainvaes/fzf-marks                       # Bookmarking with fzf filtering
+zplugin ice wait'1'
+zplugin light MichaelAquilina/zsh-you-should-use 	 # Alias advices
+# zplugin light mafredri/zsh-async # https://github.com/mafredri/zsh-async
+# zplugin load MichaelAquilina/zsh-auto-notify # https://github.com/Spread0x/zsh-auto-notify
+# zplugin light ytet5uy4/fzf-widgets # https://github.com/ytet5uy4/fzf-widgets
+
+zplugin ice wait'1'
 zplugin light zdharma/zsh-diff-so-fancy
+zplugin ice wait'1'
 zplugin light tysonwolker/iterm-tab-colors
-zplugin load zdharma/history-search-multi-word
+zplugin ice wait'2'
 zplugin light zdharma/zzcomplete
 zinit light zpm-zsh/colorize
 zplugin snippet https://github.com/bernardop/iterm-tab-color-oh-my-zsh/blob/master/iterm-tab-color.plugin.zsh
-zplugin snippet https://github.com/changyuheng/zsh-interactive-cd/blob/master/zsh-interactive-cd.plugin.zsh
+#zplugin snippet https://github.com/changyuheng/zsh-interactive-cd/blob/master/zsh-interactive-cd.plugin.zsh
+ENHANCD_COMPLETION_BEHAVIOR=list
+
 #zplugin ice svn atclone'git clone https://github.com/clvv/fasd external'
 #zplugin snippet PZT::modules/fasd
+zplugin ice wait'2' lucid
 zplugin snippet OMZ::plugins/git/git.plugin.zsh
 zplugin load zdharma/zui
-zplugin snippet OMZ::plugins/sbt/sbt.plugin.zsh
-zplugin snippet OMZ::plugins/aws/aws.plugin.zsh
+zplugin light zdharma/zplugin-crasis
+
+#zplugin snippet OMZ::plugins/aws/aws.plugin.zsh
+#zplugin snippet OMZ::plugins/sbt/sbt.plugin.zsh
 # zplugin catimg
 # zplugin colored-man-pages
+
+zplugin ice wait'2' lucid
+zplugin load iam4x/zsh-iterm-touchbar
+
+# git flow
+zplugin ice wait'2' lucid
+zplugin snippet 'OMZ::plugins/git-flow/git-flow.plugin.zsh'
+# ripgrep
+zplugin ice from"gh-r" as"program" bpick"*64*linux*" mv"ripgrep* -> ripgrep" pick"ripgrep/rg"; zplugin light BurntSushi/ripgrep
+# jq
+zplugin ice from"gh-r" as"program" bpick"*linux64" mv"jq-linux64 -> jq"; zplugin light stedolan/jq
+#fd
+zplugin ice from"gh-r" as"program" mv"fd* -> fd" pick"fd/fd"; zplugin light sharkdp/fd
+#bat
+zplugin ice from"gh-r" as"program" bpick"*x86_64*linux*musl*" pick"*bat*/bat"; zplugin light sharkdp/bat
+# forgit
+zplugin ice wait'2' lucid
+zplugin light wfxr/forgit
+
+
+zplugin ice depth=1 wait silent
+zplugin snippet OMZ::lib/spectrum.zsh
+zplugin ice depth=1 wait silent
+
+zplugin ice wait'2' lucid
 zplugin snippet OMZ::plugins/compleat/compleat.plugin.zsh
+zplugin ice wait'2' lucid
 zplugin snippet OMZ::plugins/cp/cp.plugin.zsh
 zplugin ice wait'2' lucid
 zplugin snippet OMZ::plugins/dircycle/dircycle.plugin.zsh
@@ -125,7 +173,9 @@ zplugin snippet OMZ::plugins/extract/extract.plugin.zsh
 zplugin ice as"command" from"gh-r" mv"fd* -> fd" pick"fd/fd"
 zplugin light sharkdp/fd
 
+zplugin ice wait'2' lucid
 zplugin snippet 'OMZ::plugins/gnu-utils/gnu-utils.plugin.zsh'
+zplugin ice wait'2' lucid
 zplugin snippet OMZ::plugins/gpg-agent/gpg-agent.plugin.zsh
 zplugin ice wait'1' lucid
 zplugin light laggardkernel/zsh-thefuck
@@ -133,8 +183,12 @@ zplugin light laggardkernel/zsh-thefuck
 zplugin ice as"program" pick"bin/git-dsf"
 zplugin light zdharma/zsh-diff-so-fancy
 
-zplugin ice as"program" make"PREFIX=$ZPFX" src"bin/autojump.zsh"
-zplugin light wting/autojump
+# startify like vim
+zplugin ice wait'0' lucid atload'zsh-startify'
+zplugin load zdharma/zsh-startify
+zstyle ":plugin:zsh-startify:shellutils" size 5  # The size of the recently used file list (default: 5)
+zstyle ":plugin:zsh-startify:vim" size 5         # The size of the recently opened in Vim list (default: 5)
+
 
 #zplugin ice wait"0"
 #zplugin light zdharma/zconvey
@@ -161,6 +215,7 @@ export PATH="/usr/local/opt/openal-soft/bin:$PATH"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 weather() { curl v2.wttr.in/$1 }
+alias j=z
 alias nvim "/Users/stan/nvim-osx64/bin/nvim -u init.vim"
 alias cat="/usr/local/bin/ccat"
 alias cat="ccat"
@@ -221,10 +276,17 @@ SPACESHIP_PROMPT_ORDER=(
 # Spaceship theme
 zplugin ice lucid pick'spaceship.zsh' compile'{lib/*,sections/*,tests/*.zsh}'
 zplugin light denysdovhan/spaceship-prompt
-zplugin snippet https://github.com/changyuheng/zsh-interactive-cd/blob/master/zsh-interactive-cd.plugin.zsh
-zplugin snippet OMZ::plugins/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+
+#zplugin ice wait"0"
+#zplugin light zdharma/zconvey
+#zplugin ice wait"0" as"command" pick"cmds/zc-bg-notify" silent
+#zplugin light zdharma/zconvey
+
 
 ###########
 # MOTD
 ###########
 neofetch
+YARN_ENABLED=true
+TOUCHBAR_GIT_ENABLED=true
+
