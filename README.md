@@ -13,6 +13,9 @@ Copyright Jacke @ https://github.com/Jacke est: 2020
 
 ![My arts](https://raw.githubusercontent.com/Jacke/iam/master/guides/carbon.png)
 
+### TODO
+- Integrate https://github.com/Jacke/xxh
+
 
 ```
 
